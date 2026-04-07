@@ -48,6 +48,20 @@
         }
 
         /* Home Section */
+        .home-img {
+            border-radius: 50%;
+            width: auto;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border: 1px solid #88268b;
+            display: block;
+            margin: 0 auto;
+            animation: resizeCircle 1s ease forwards;
+        }
+
+
+
+
         .home {
             min-height: 100vh;
             display: flex;
@@ -59,6 +73,7 @@
             border-radius: 50%;
             max-width: 100%;
             border: 1px solid #88268b;
+            max-height: 450px;
         }
 
         .home-content {
@@ -137,29 +152,61 @@
         }
 
         /* About */
+        /* About */
         .about img {
             border-radius: 20px;
             max-width: 100%;
             border: 1px solid #88268b;
+            height: auto;
+            /* ensures image scales on small screens */
+            display: block;
+            margin: 0 auto;
         }
 
         .about h2 {
             color: #e0e0e0 !important;
+            margin-bottom: 15px;
         }
 
         .about p {
             margin-top: 14px;
             color: #b9b9b9;
             font-size: 14px;
+            line-height: 1.6;
         }
 
         .about h6 {
             font-size: 12px;
+            margin-top: 10px;
         }
 
         .about h6 a {
             text-decoration: none;
             color: #88268b;
+            transition: color 0.3s;
+        }
+
+        .about h6 a:hover {
+            color: #aa40d0;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .about .row {
+                flex-direction: column;
+                /* stack image and text */
+                text-align: center;
+            }
+
+            .about img {
+                max-width: 300px;
+                margin-bottom: 20px;
+                height: auto;
+            }
+
+            .about p {
+                font-size: 13px;
+            }
         }
 
         /* Skills */
@@ -318,13 +365,13 @@
         }
 
         .navbar-toggler {
-    border-color: #fff; /* optional: white border around toggler */
-}
+            border-color: #fff;
+            /* optional: white border around toggler */
+        }
 
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
     </style>
 </head>
 
@@ -366,7 +413,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6" data-aos="fade-right" data-aos-delay="200">
-                    <img src="assets/images/main.png" alt="Syed Burhan" height="450px">
+                    <img src="assets/images/main.png" alt="Syed Burhan">
                 </div>
                 <div class="col-md-6 home-content" data-aos="fade-left" data-aos-delay="400">
                     <h1>Hi, I'm <br> Syed Burhan Bukhari</h1>
@@ -417,25 +464,30 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about" class="about py-5">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-4" data-aos="fade-right" data-aos-delay="200"><img src="assets/images/a.jpg"
-                        alt="About Me"></div>
-                <div class="col-md-8 mt-1" data-aos="fade-left" data-aos-delay="400">
+                <!-- Image with Zoom-in animation -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="assets/images/a.jpg" alt="About Me" height="410px">
+                </div>
+
+                <!-- Text with Zoom-in animation -->
+                <div class="col-md-8 mt-3 mt-md-0" data-aos="zoom-in" data-aos-delay="400">
                     <h2>About Me</h2>
-                    <p>I’m <span style="color: #e0e0e0;">Syed Burhan Bukhari</span>, a professional web designer and
+                    <p>
+                        I’m <span style="color: #e0e0e0;">Syed Burhan Bukhari</span>, a professional web designer and
                         developer with 4 years of experience in building modern and responsive websites. I create clean,
                         user-friendly designs combined with strong development skills to deliver high-quality results. I
                         have worked on different projects, focusing on performance, smooth animations, and attractive
                         layouts. My goal is to turn ideas into powerful digital experiences that look great and work
-                        perfectly on all devices.</p>
-                    <h6><a href="index.html">See More></a></h6>
+                        perfectly on all devices.
+                    </p>
+                    <h6><a href="index.html">See More ></a></h6>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- Skills Section -->
     <section id="skills" class="py-5">
         <div class="container">
@@ -501,7 +553,10 @@
                 </form>
             </div>
             <div class="map-container" data-aos="fade-up" data-aos-delay="400">
-               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54634.96361330114!2d72.681616!3d31.1462554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3923001515646a23%3A0xfcb2866ffe58b367!2sGojra%2C%20Pakistan!5e0!3m2!1sen!2s!4v1775561279387!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54634.96361330114!2d72.681616!3d31.1462554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3923001515646a23%3A0xfcb2866ffe58b367!2sGojra%2C%20Pakistan!5e0!3m2!1sen!2s!4v1775561279387!5m2!1sen!2s"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
@@ -511,7 +566,8 @@
         <div class="container text-center">
             <p>© 2026 Syed Burhan Bukhari. All rights reserved.</p>
             <div class="social-icons">
-                <a href="https://web.facebook.com/syed.zada198" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://web.facebook.com/syed.zada198" target="_blank"><i
+                        class="fa-brands fa-facebook"></i></a>
                 <a href="https://www.instagram.com/syed_zada198/" target="_blank"><i
                         class="fa-brands fa-instagram"></i></a>
                 <a href="https://x.com/Syedzada198" target="_blank"><i class="fa-brands fa-square-twitter"></i></a>
