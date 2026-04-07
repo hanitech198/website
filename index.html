@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syed-Burhan</title>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- AOS Animations -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+    background-color: #111;
+}
+
+/* Navbar */
+.navbar {
+    background: #111;
+    border-bottom: 1px solid white;
+}
+
+.navbar a {
+    position: relative;
+    color: #fff !important;
+    margin-right: 15px;
+    text-decoration: none;
+    padding-bottom: 3px;
+    transition: color 0.3s;
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #88268b; /* underline color */
+    transition: width 0.3s ease-in-out;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+/* Home Section */
+.home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px; /* spacing for navbar */
+}
+.home img {
+    border-radius: 50%;
+    max-width: 100%;
+    border: 1px solid #88268b;
+}
+.home-content {
+    max-width: 600px;
+}
+.home-content p{
+    max-width: 460px;
+    color: #b9b9b9;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.home-content h1{
+    font-weight: 700;
+    color: #e0e0e0;
+}
+
+.home-content h6{
+    color:#88268b;
+    font-size: 12px;
+}
+.home-content a{
+    background-color: #11111100;
+    /* width: 100px !important; */
+    font-size: 14px;
+    border: 0.5px solid #88268b;
+    margin-top: 10px;
+    color: #b9b9b9;
+}
+/* Portfolio */
+section {
+    padding: 120px 0; /* more padding for scroll effect */
+}
+
+/* Portfolio container */
+.portfolio img {
+    width: 100%;
+    height: 250px;             /* fixed height for all images */
+    object-fit: cover;          /* crop & fill without distortion */
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+/* Hover effect */
+.portfolio img:hover {
+    transform: scale(1.05);
+}
+
+/* Section heading */
+.portfolio h2 {
+    color: #e0e0e0 !important;
+}
+
+/* About */
+.about img {
+    border-radius: 20px;
+    max-width: 100%;
+    border: 1px solid #88268b;
+}
+.about h2{
+    color: #e0e0e0 !important;
+}
+.about p{
+    margin-top: 14px;
+    color: #b9b9b9;
+    font-size: 14px;
+}
+.about h6{
+    font-size: 12px;
+}
+.about h6 a{
+
+    text-decoration: none;
+    color:#88268b;
+
+}
+/* Skills */
+#skills {
+  /* background: #0f0f1a; */
+}
+
+.skill-box {
+  background: #1a1a2e;
+  border: 1px solid #88268b;
+  padding: 25px 15px;
+  border-radius: 15px;
+  transition: 0.3s;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(136, 38, 139, 0.4); /* glow with #88268b */
+}
+
+.skill-box img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.skill-box p {
+  margin: 0;
+  color: #b9b9b9; /* main color for text */
+  font-weight: 500;
+}
+/* Contact */
+.contact-form {
+    max-width: 500px;
+    margin: auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    background: #1a1a2e;           /* dull background color */
+    border: 1px solid #88268b;     /* purple border */
+    color: #e0e0e0 !important;                /* text color */
+    border-radius: 8px;             /* rounded corners */
+    padding: 10px 15px;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #aa40d0;         /* brighter purple on focus */
+    background: #2b1a3f00;        
+    box-shadow: 0 0 10px rgba(136, 38, 139, 0.3);
+}
+
+.contact-form button {
+    background-color: #88268b;
+    border: none;
+    color: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #aa40d0;
+    box-shadow: 0 5px 15px rgba(136, 38, 139, 0.3);
+}
+.contact-form {
+    max-width: 500px;
+    margin: auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    background: transparent;           /* remove input color */
+    border: 1px solid #88268b;        /* border color */
+    color: #e0e0e0;                   /* text color */
+    border-radius: 8px;                /* rounded corners */
+    padding: 10px 15px;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #aa40d0;             /* slightly brighter on focus */
+    box-shadow: 0 0 10px rgba(136, 38, 139, 0.3);
+}
+
+.contact-form button {
+    background-color: #88268b;
+    border: none;
+    color: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #aa40d0;         /* hover effect */
+    box-shadow: 0 5px 15px rgba(136, 38, 139, 0.3);
+}
+/* Footer */
+footer {
+    background: #111;
+    color: #fff;
+    padding: 40px 0;
+}
+footer a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+<div class="container">
+<a class="navbar-brand adjust-nav" href="#">Syed Burhan</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav ms-auto">
+    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+<!-- Home Section -->
+<section id="home" class="home d-flex align-items-center mt-4">
+<div class="container">
+<div class="row align-items-center">
+    <div class="col-md-6" data-aos="fade-right" data-aos-delay="200">
+        <img src="assets/images/main.png" alt="Syed Burhan" height="450px">
+    </div>
+    <div class="col-md-6 home-content" data-aos="fade-left" data-aos-delay="400">
+        <h1>Hi, I'm <br> Syed Burhan Bukhari</h1>
+        <h6>Web Designer & Developer</h6>
+        <p>Hi, I'm <span style="color: #e0e0e0;">Syed Burhan Bukhari</span>, a passionate web designer and developer. I specialize in creating modern, responsive, and user-friendly websites that combine clean design with smooth functionality. With a keen eye for detail and a strong understanding of the latest web technologies, I aim to deliver digital experiences that engage users and help businesses grow. I love turning ideas into fully functional websites and continuously exploring new trends in web development to stay ahead.
+        <br><a href="your-cv.pdf" class="btn btn-primary ">Download CV</a>
+    </div>
+</div>
+</div>
+</section>
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="portfolio ">
+<div class="container">
+<h2 class="text-center mb-5" data-aos="fade-up">Portfolio</h2>
+<div class="row g-4 text-center">
+    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100"><img src="assets/portfolio/1600w--7Q4-7tyJj4.webp" alt="Work 1"></div>
+    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200"><img src="assets/portfolio/1600w-VPXYcBtq8h8.webp" alt="Work 2"></div>
+    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300"><img src="assets/portfolio/1_scydM8z_6B4d5DbqPb08kg.png" alt="Work 3"></div>
+    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400"><img src="assets/portfolio/98ecb4507f2ca027a972216016de2a67543fca79.png" alt="Work 4"></div>
+    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="500"><img src="assets/portfolio/coding-5f865b2b87c6e.jpeg" alt="Work 5"></div>
+    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="600"><img src="assets/portfolio/electronics-website-template.jpg" alt="Work 6"></div>
+</div>
+</div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about">
+<div class="container">
+<div class="row align-items-center">
+    <div class="col-md-4" data-aos="fade-right" data-aos-delay="200"><img src="assets/images/a.jpg" alt="About Me"></div>
+    <div class="col-md-8 mt-1" data-aos="fade-left" data-aos-delay="400">
+        <h2>About Me</h2>
+        <p>I’m <span style="color: #e0e0e0;">Syed Burhan Bukhari</span>, a professional web designer and developer with 4 years of experience in building modern and responsive websites. I create clean, user-friendly designs combined with strong development skills to deliver high-quality results. I have worked on different projects, focusing on performance, smooth animations, and attractive layouts. My goal is to turn ideas into powerful digital experiences that look great and work perfectly on all devices.</p>
+            <h6><a href="">Learn More></a></h6>
+
+    </div>
+</div>
+</div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="py-5">
+  <div class="container">
+
+    <h2 class="text-center mb-5" data-aos="fade-up" style="color: #e0e0e0;">Skills</h2>
+
+    <div class="row g-4 justify-content-center text-center">
+
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="skill-box" data-aos="flip-left" data-aos-delay="100">
+          <img src="assets/skill-logo/html.png" alt="HTML">
+          <p>HTML</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="skill-box" data-aos="flip-left" data-aos-delay="200">
+          <img src="assets/skill-logo/css.png" alt="CSS">
+          <p>CSS</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="skill-box" data-aos="flip-left" data-aos-delay="300">
+          <img src="assets/skill-logo/bootstrap.png" alt="Bootstrap">
+          <p>Bootstrap</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="skill-box" data-aos="flip-left" data-aos-delay="400">
+          <img src="assets/skill-logo/javascript.webp" alt="JavaScript">
+          <p>JavaScript</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="skill-box" data-aos="flip-left" data-aos-delay="500">
+          <img src="assets/skill-logo/Tailwind.png" alt="Tailwind CSS">
+          <p>Tailwind CSS</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="skill-box" data-aos="flip-left" data-aos-delay="600">
+          <img src="assets/skill-logo/PHP.png" alt="PHP">
+          <p>PHP</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+<div class="container">
+<h2 class="text-center mb-5" data-aos="fade-up" style="color: #e0e0e0;">Get In Touch</h2>
+<form class="contact-form" data-aos="fade-up" data-aos-delay="200">
+<div class="mb-3"><input type="text" class="form-control" placeholder="Name" required></div>
+<div class="mb-3"><input type="email" class="form-control" placeholder="Email" required></div>
+<div class="mb-3"><textarea class="form-control" rows="4" placeholder="Message" required></textarea></div>
+<button type="submit" class="btn btn-primary w-100">Send Message</button>
+</form>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center">
+<div class="container">
+<div class="mb-3">
+    <a href="#">Home</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+</div>
+<div class="mb-3">
+    <a href="https://facebook.com" target="_blank">Facebook</a>
+    <a href="https://instagram.com" target="_blank">Instagram</a>
+    <a href="https://fiverr.com" target="_blank">Fiverr</a>
+    <a href="https://twitter.com" target="_blank">Twitter</a>
+</div>
+<p>© All Rights Reserved || Syed Burhan</p>
+</div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({
+    duration: 1000,
+    once: true
+});
+</script>
+
+</body>
+</html>
